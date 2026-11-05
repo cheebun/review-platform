@@ -1,0 +1,138 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "dcf8fd13-8053-4a7b-bf8b-c500faa35e9f",
+  "prevIds": [
+    "89a6aab4-5988-474a-93eb-2e84e9f9d376"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "login_token"
+      ],
+      "writes": [
+        "s|tbl|public.login_token",
+        "n|tbl|public.login_token",
+        "e|tbl|public.login_token",
+        "n|rel|public.login_token",
+        "n|type|public.login_token",
+        "n|rel|public.login_token_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "login_token",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "id",
+        "type": "smallint",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "token_hash",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "rotated_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "login_token_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "login_token_singleton",
+        "value": "\"id\" = 1",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "login_token",
+        "name": "login_token_hash_check",
+        "value": "starts_with(\"token_hash\", 'pbkdf2-sha256$')",
+        "entityType": "checks"
+      }
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "import", "jsx-a11y", "unicorn"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "ignorePatterns": [
+    "src/app/**",
+    "src/components/**",
+    "src/lib/slack-review-vercel.ts",
+    "src/routeTree.gen.ts",
+    ".output/**"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/domain/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "**",
+                  "!./**",
+                  "!../**",
+                  "!zod",
+                  "!zod/**",
+                  "**/application/**",
+                  "**/ports/**",
+                  "**/adapters/**",
+                  "**/server/**",
+                  "**/routes/**",
+                  "**/functions/**"
+                ],
+                "message": "domain may import only relative domain files and zod, never other layers (architecture.md section 2)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/domain/**/*.test.ts", "src/domain/**/*.test.tsx"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "**",
+                  "!./**",
+                  "!../**",
+                  "!zod",
+                  "!zod/**",
+                  "!vitest",
+                  "!vitest/**",
+                  "!fast-check",
+                  "!fast-check/**",
+                  "**/application/**",
+                  "**/ports/**",
+                  "**/adapters/**",
+                  "**/server/**",
+                  "**/routes/**",
+                  "**/functions/**"
+                ],
+                "message": "domain test files may import only relative domain files, zod and vitest (architecture.md section 2)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/application/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/adapters/**", "**/server/**", "**/routes/**"],
+                "message": "application may import only domain and ports (architecture.md section 2)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/ports/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/adapters/**"],
+                "message": "ports must not import from adapters (architecture.md section 2)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/**"],
+      "rules": {
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "process",
+            "property": "env",
+            "message": "Read env only in src/server/config.ts (architecture.md section 6)"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/server/config.ts",
+        "src/testing/**",
+        "src/lib/**",
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "rules": {
+        "no-restricted-properties": "off"
+      }
+    }
+  ]
+}

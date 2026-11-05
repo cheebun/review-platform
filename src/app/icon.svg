@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="agent-ops">
+  <rect width="32" height="32" rx="8" fill="#0b5fff"/>
+  <!-- geometric "ao" monogram -->
+  <path
+    fill="#ffffff"
+    d="M7.2 22.4 L10.1 9.6 h2.7 L15.7 22.4 h-2.55l-.55-2.55H10.3l-.55 2.55H7.2zm3.55-4.7h2.05l-1-4.55-1.05 4.55z"
+  />
+  <path
+    fill="#ffffff"
+    d="M18.1 16c0-3.55 2.2-6.55 5.55-6.55 3.35 0 5.55 3 5.55 6.55s-2.2 6.55-5.55 6.55c-3.35 0-5.55-3-5.55-6.55zm2.55 0c0 2.25 1.15 4.25 3 4.25s3-2 3-4.25-1.15-4.25-3-4.25-3 2-3 4.25z"
+  />
+  <rect x="8" y="24.2" width="16" height="1.6" rx="0.8" fill="#ffffff" opacity="0.9"/>
+</svg>

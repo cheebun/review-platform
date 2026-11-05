@@ -1,0 +1,28 @@
+{
+  "display_information": {
+    "name": "Review platform",
+    "description": "Review katana-web PRs addressed to the authorized user",
+    "background_color": "#0b5fff"
+  },
+  "oauth_config": {
+    "scopes": {
+      "user": [
+        "channels:history",
+        "groups:history",
+        "im:history",
+        "mpim:history",
+        "chat:write",
+        "reactions:write",
+        "channels:read",
+        "groups:read"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "user_events": ["message.channels", "message.groups", "message.im", "message.mpim"]
+    },
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}
